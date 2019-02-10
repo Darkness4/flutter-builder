@@ -1,9 +1,10 @@
-image: docker:latest
-
 stages:
   - build
   - test
   - deploy
+
+after_script:
+  - docker info
 
 build-master-28:
   stage: build
