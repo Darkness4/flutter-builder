@@ -35,7 +35,7 @@ RUN mkdir ~/.android \
     "platform-tools" \
     "extras;android;m2repository" \
     "extras;google;google_play_services" \
-    "extras;google;m2repository" \
+    "extras;google;m2repository" > /dev/null \
     && yes | sdkmanager --licenses || echo "Failed" \
     && flutter doctor -v
 

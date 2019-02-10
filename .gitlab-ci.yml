@@ -14,6 +14,7 @@ stages:
 before_script:
   - echo "${CI_REGISTRY_PASSWORD}" | docker login -u "${CI_REGISTRY_USER}" --password-stdin "${CI_REGISTRY}"
   - docker info
+  - mkdir -p docker-images
 
 build-master-28:
   stage: build
