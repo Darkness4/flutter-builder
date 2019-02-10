@@ -14,7 +14,7 @@ ENV ANDROID_HOME="/opt/android-sdk" \
     PATH="/opt/android-sdk/tools/bin:/opt/flutter/bin:/opt/flutter/bin/cache/dart-sdk/bin:$PATH"
 
 RUN apt-get update \
-    && apt-get -y install --no-install-recommends curl git lib32stdc++6 openjdk-8-jdk-headless unzip \
+    && apt-get -y install --no-install-recommends curl git lib32stdc++6 unzip \
     && apt-get --purge autoremove \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/*
@@ -38,3 +38,5 @@ RUN mkdir ~/.android \
     "extras;google;m2repository" \
     && yes | sdkmanager --licenses || echo "Failed" \
     && flutter doctor -v
+
+CMD ["sh"]

@@ -1,0 +1,139 @@
+image: docker:latest
+
+stages:
+  - build
+  - test
+  - deploy
+
+build-master-28:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:28-master 28/master
+
+build-dev-28:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:28-dev 28/dev
+build-beta-28:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:28-beta 28/beta
+
+build-stable-28:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:28-stable 28/stable
+
+build-master-27:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:27-master 27/master
+
+build-dev-27:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:27-dev 27/dev
+
+build-beta-27:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:27-beta 27/beta
+
+build-stable-27:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:27-stable 27/stable
+
+
+build-master-25:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:25-master 25/master
+
+build-dev-25:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:25-dev 25/dev
+
+build-beta-25:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:25-beta 25/beta
+
+build-stable-25:
+  stage: build
+  script:
+    - docker build --tag flutter-builder:25-stable 25/stable
+
+
+
+test-master-28:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:28-master flutter doctor -v
+
+test-dev-28:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:28-dev flutter doctor -v
+
+test-beta-28:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:28-beta flutter doctor -v
+
+test-stable-28:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:28-stable flutter doctor -v
+
+test-master-27:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:27-master flutter doctor -v
+
+test-dev-27:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:27-dev flutter doctor -v
+
+test-beta-27:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:27-beta flutter doctor -v
+
+test-stable-27:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:27-stable flutter doctor -v
+
+
+test-master-25:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:25-master flutter doctor -v
+
+test-dev-25:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:25-dev flutter doctor -v
+
+test-beta-25:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:25-beta flutter doctor -v
+
+test-stable-25:
+  stage: test
+  script:
+    - docker run --rm flutter-builder:25-stable flutter doctor -v
+
+
+deploy:
+  stage: deploy
+  script:
+    - wget -qO- --no-check-certificate --post-data="build=true" https://cloud.docker.com/api/build/v1/source/a1832105-1bd1-49ff-b76f-2a57de438db0/trigger/fb0f410d-e12c-4eda-aa69-d5e6c2d2e9d2/call/
+
+
+after_script:
+  - docker images
