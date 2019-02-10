@@ -119,28 +119,28 @@ test-master-28:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:28-master 28/master
-    - docker run --rm $CONTAINER_NAME:28-master cd /opt/android-sdk/platforms/android-28
+    - docker run --rm $CONTAINER_NAME:28-master [ ! -d /opt/android-sdk/platforms/android-28 ]&&exit 1
   only:
   - master
 test-dev-28:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:28-dev 28/dev
-    - docker run --rm $CONTAINER_NAME:28-dev cd /opt/android-sdk/platforms/android-28
+    - docker run --rm $CONTAINER_NAME:28-dev [ ! -d /opt/android-sdk/platforms/android-28 ]&&exit 1
   only:
   - master
 test-beta-28:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:28-beta 28/beta
-    - docker run --rm $CONTAINER_NAME:28-beta cd /opt/android-sdk/platforms/android-28
+    - docker run --rm $CONTAINER_NAME:28-beta [ ! -d /opt/android-sdk/platforms/android-28 ]&&exit 1
   only:
   - master
 test-stable-28:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:28-stable 28/stable
-    - docker run --rm $CONTAINER_NAME:28-stable cd /opt/android-sdk/platforms/android-28
+    - docker run --rm $CONTAINER_NAME:28-stable [ ! -d /opt/android-sdk/platforms/android-28 ]&&exit 1
   only:
   - master
 
@@ -148,28 +148,28 @@ test-master-27:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:27-master 27/master
-    - docker run --rm $CONTAINER_NAME:27-master cd /opt/android-sdk/platforms/android-27
+    - docker run --rm $CONTAINER_NAME:27-master [ ! -d /opt/android-sdk/platforms/android-27 ]&&exit 1
   only:
   - master
 test-dev-27:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:27-dev 27/dev
-    - docker run --rm $CONTAINER_NAME:27-dev cd /opt/android-sdk/platforms/android-27
+    - docker run --rm $CONTAINER_NAME:27-dev [ ! -d /opt/android-sdk/platforms/android-27 ]&&exit 1
   only:
   - master
 test-beta-27:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:27-beta 27/beta
-    - docker run --rm $CONTAINER_NAME:27-beta cd /opt/android-sdk/platforms/android-27
+    - docker run --rm $CONTAINER_NAME:27-beta [ ! -d /opt/android-sdk/platforms/android-27 ]&&exit 1
   only:
   - master
 test-stable-27:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:27-stable 27/stable
-    - docker run --rm $CONTAINER_NAME:27-stable cd /opt/android-sdk/platforms/android-27
+    - docker run --rm $CONTAINER_NAME:27-stable [ ! -d /opt/android-sdk/platforms/android-27 ]&&exit 1
   only:
   - master
 
@@ -177,7 +177,7 @@ test-master-25:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:25-master 25/master
-    - docker run --rm $CONTAINER_NAME:25-master cd /opt/android-sdk/platforms/android-25
+    - docker run --rm $CONTAINER_NAME:25-master [ ! -d /opt/android-sdk/platforms/android-25 ]&&exit 1
   only:
   - master
   only:
@@ -186,21 +186,21 @@ test-dev-25:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:25-dev 25/dev
-    - docker run --rm $CONTAINER_NAME:25-dev cd /opt/android-sdk/platforms/android-25
+    - docker run --rm $CONTAINER_NAME:25-dev [ ! -d /opt/android-sdk/platforms/android-25 ]&&exit 1
   only:
   - master
 test-beta-25:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:25-beta 25/beta
-    - docker run --rm $CONTAINER_NAME:25-beta cd /opt/android-sdk/platforms/android-25
+    - docker run --rm $CONTAINER_NAME:25-beta [ ! -d /opt/android-sdk/platforms/android-25 ]&&exit 1
   only:
   - master
 test-stable-25:
   stage: test
   script:
     - docker build --tag $CONTAINER_NAME:25-stable 25/stable
-    - docker run --rm $CONTAINER_NAME:25-stable cd /opt/android-sdk/platforms/android-25
+    - docker run --rm $CONTAINER_NAME:25-stable [ ! -d /opt/android-sdk/platforms/android-25 ]&&exit 1
   only:
   - master
 
