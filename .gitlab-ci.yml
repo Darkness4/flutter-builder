@@ -23,10 +23,6 @@ build-master-28:
     - docker save $CONTAINER_NAME:28-master > docker-images/28-master.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 build-dev-28:
   stage: build
@@ -35,10 +31,6 @@ build-dev-28:
     - docker save $CONTAINER_NAME:28-dev > docker-images/28-dev.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 build-beta-28:
   stage: build
@@ -47,10 +39,6 @@ build-beta-28:
     - docker save $CONTAINER_NAME:28-beta > docker-images/28-beta.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 build-stable-28:
   stage: build
@@ -59,10 +47,6 @@ build-stable-28:
     - docker save $CONTAINER_NAME:28-stable > docker-images/28-stable.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 build-master-27:
   stage: build
@@ -71,10 +55,6 @@ build-master-27:
     - docker save $CONTAINER_NAME:27-master > docker-images/27-master.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 build-dev-27:
   stage: build
@@ -83,10 +63,6 @@ build-dev-27:
     - docker save $CONTAINER_NAME:27-dev > docker-images/27-dev.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 build-beta-27:
   stage: build
@@ -95,10 +71,6 @@ build-beta-27:
     - docker save $CONTAINER_NAME:27-beta > docker-images/27-beta.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 build-stable-27:
   stage: build
@@ -107,10 +79,6 @@ build-stable-27:
     - docker save $CONTAINER_NAME:27-stable > docker-images/27-stable.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 
 build-master-25:
@@ -120,10 +88,6 @@ build-master-25:
     - docker save $CONTAINER_NAME:25-master > docker-images/25-master.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 build-dev-25:
   stage: build
@@ -132,10 +96,6 @@ build-dev-25:
     - docker save $CONTAINER_NAME:25-dev > docker-images/25-dev.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 build-beta-25:
   stage: build
@@ -144,10 +104,6 @@ build-beta-25:
     - docker save $CONTAINER_NAME:25-beta > docker-images/25-beta.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 build-stable-25:
   stage: build
@@ -156,42 +112,34 @@ build-stable-25:
     - docker save $CONTAINER_NAME:25-stable > docker-images/25-stable.tar
   only:
   - master
-  artifacts:
-    paths:
-      - docker-images
-    expire_in: 1 day
 
 
 
 test-master-28:
   stage: test
   script:
-    - docker load -i docker-images/28-master.tar
-    - docker run --rm $CONTAINER_NAME:28-master flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:28-master 28/master
     - docker run --rm $CONTAINER_NAME:28-master cd /opt/android-sdk/platforms/android-28
   only:
   - master
 test-dev-28:
   stage: test
   script:
-    - docker load -i docker-images/28-dev.tar
-    - docker run --rm $CONTAINER_NAME:28-dev flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:28-dev 28/dev
     - docker run --rm $CONTAINER_NAME:28-dev cd /opt/android-sdk/platforms/android-28
   only:
   - master
 test-beta-28:
   stage: test
   script:
-    - docker load -i docker-images/28-beta.tar
-    - docker run --rm $CONTAINER_NAME:28-beta flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:28-beta 28/beta
     - docker run --rm $CONTAINER_NAME:28-beta cd /opt/android-sdk/platforms/android-28
   only:
   - master
 test-stable-28:
   stage: test
   script:
-    - docker load -i docker-images/28-stable.tar
-    - docker run --rm $CONTAINER_NAME:28-stable flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:28-stable 28/stable
     - docker run --rm $CONTAINER_NAME:28-stable cd /opt/android-sdk/platforms/android-28
   only:
   - master
@@ -199,32 +147,28 @@ test-stable-28:
 test-master-27:
   stage: test
   script:
-    - docker load -i docker-images/27-master.tar
-    - docker run --rm $CONTAINER_NAME:27-master flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:27-master 27/master
     - docker run --rm $CONTAINER_NAME:27-master cd /opt/android-sdk/platforms/android-27
   only:
   - master
 test-dev-27:
   stage: test
   script:
-    - docker load -i docker-images/27-dev.tar
-    - docker run --rm $CONTAINER_NAME:27-dev flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:27-dev 27/dev
     - docker run --rm $CONTAINER_NAME:27-dev cd /opt/android-sdk/platforms/android-27
   only:
   - master
 test-beta-27:
   stage: test
   script:
-    - docker load -i docker-images/27-beta.tar
-    - docker run --rm $CONTAINER_NAME:27-beta flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:27-beta 27/beta
     - docker run --rm $CONTAINER_NAME:27-beta cd /opt/android-sdk/platforms/android-27
   only:
   - master
 test-stable-27:
   stage: test
   script:
-    - docker load -i docker-images/27-stable.tar
-    - docker run --rm $CONTAINER_NAME:27-stable flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:27-stable 27/stable
     - docker run --rm $CONTAINER_NAME:27-stable cd /opt/android-sdk/platforms/android-27
   only:
   - master
@@ -232,8 +176,7 @@ test-stable-27:
 test-master-25:
   stage: test
   script:
-    - docker load -i docker-images/25-master.tar
-    - docker run --rm $CONTAINER_NAME:25-master flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:25-master 25/master
     - docker run --rm $CONTAINER_NAME:25-master cd /opt/android-sdk/platforms/android-25
   only:
   - master
@@ -242,24 +185,21 @@ test-master-25:
 test-dev-25:
   stage: test
   script:
-    - docker load -i docker-images/25-dev.tar
-    - docker run --rm $CONTAINER_NAME:25-dev flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:25-dev 25/dev
     - docker run --rm $CONTAINER_NAME:25-dev cd /opt/android-sdk/platforms/android-25
   only:
   - master
 test-beta-25:
   stage: test
   script:
-    - docker load -i docker-images/25-beta.tar
-    - docker run --rm $CONTAINER_NAME:25-beta flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:25-beta 25/beta
     - docker run --rm $CONTAINER_NAME:25-beta cd /opt/android-sdk/platforms/android-25
   only:
   - master
 test-stable-25:
   stage: test
   script:
-    - docker load -i docker-images/25-stable.tar
-    - docker run --rm $CONTAINER_NAME:25-stable flutter doctor -v
+    - docker build --tag $CONTAINER_NAME:25-stable 25/stable
     - docker run --rm $CONTAINER_NAME:25-stable cd /opt/android-sdk/platforms/android-25
   only:
   - master
@@ -268,7 +208,7 @@ test-stable-25:
 deploy-master-28:
   stage: deploy
   script:
-    - docker load -i docker-images/28-master.tar
+    - docker build --tag $CONTAINER_NAME:28-master 28/master
     - docker push $CONTAINER_NAME:28-master
     - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:28
     - docker push $CONTAINER_NAME:28
@@ -283,7 +223,7 @@ deploy-master-28:
 deploy-dev-28:
   stage: deploy
   script:
-    - docker load -i docker-images/28-dev.tar
+    - docker build --tag $CONTAINER_NAME:28-dev 28/dev
     - docker push $CONTAINER_NAME:28-dev
     - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:28
     - docker push $CONTAINER_NAME:dev
@@ -294,22 +234,22 @@ deploy-dev-28:
 deploy-beta-28:
   stage: deploy
   script:
-    - docker load -i docker-images/28-beta.tar
+    - docker build --tag $CONTAINER_NAME:28-beta 28/beta
     - docker push $CONTAINER_NAME:28-beta
     - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:28
     - docker push $CONTAINER_NAME:beta
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:latest-dev
+    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:latest-beta
     - docker push $CONTAINER_NAME:latest-beta
   only:
     - master
 deploy-stable-28:
   stage: deploy
   script:
-    - docker load -i docker-images/28-stable.tar
+    - docker build --tag $CONTAINER_NAME:28-stable 28/stable
     - docker push $CONTAINER_NAME:28-stable
     - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:28
     - docker push $CONTAINER_NAME:stable
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:latest-dev
+    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:latest-stable
     - docker push $CONTAINER_NAME:latest-stable
   only:
     - master
@@ -317,7 +257,7 @@ deploy-stable-28:
 deploy-master-27:
   stage: deploy
   script:
-    - docker load -i docker-images/27-master.tar
+    - docker build --tag $CONTAINER_NAME:27-master 27/master
     - docker push $CONTAINER_NAME:27-master
     - docker tag $CONTAINER_NAME:27-master $CONTAINER_NAME:27
     - docker push $CONTAINER_NAME:27
@@ -326,21 +266,21 @@ deploy-master-27:
 deploy-dev-27:
   stage: deploy
   script:
-    - docker load -i docker-images/27-dev.tar
+    - docker build --tag $CONTAINER_NAME:27-dev 27/dev
     - docker push $CONTAINER_NAME:27-dev
   only:
     - master
 deploy-beta-27:
   stage: deploy
   script:
-    - docker load -i docker-images/27-beta.tar
+    - docker build --tag $CONTAINER_NAME:27-beta 27/beta
     - docker push $CONTAINER_NAME:27-beta
   only:
     - master
 deploy-stable-27:
   stage: deploy
   script:
-    - docker load -i docker-images/27-stable.tar
+    - docker build --tag $CONTAINER_NAME:27-stable 27/stable
     - docker push $CONTAINER_NAME:27-stable
   only:
     - master
@@ -348,7 +288,7 @@ deploy-stable-27:
 deploy-master-25:
   stage: deploy
   script:
-    - docker load -i docker-images/25-master.tar
+    - docker build --tag $CONTAINER_NAME:25-master 25/master
     - docker push $CONTAINER_NAME:25-master
     - docker tag $CONTAINER_NAME:25-master $CONTAINER_NAME:25
     - docker push $CONTAINER_NAME:25
@@ -357,21 +297,21 @@ deploy-master-25:
 deploy-dev-25:
   stage: deploy
   script:
-    - docker load -i docker-images/25-dev.tar
+    - docker build --tag $CONTAINER_NAME:25-dev 25/dev
     - docker push $CONTAINER_NAME:25-dev
   only:
     - master
 deploy-beta-25:
   stage: deploy
   script:
-    - docker load -i docker-images/25-beta.tar
+    - docker build --tag $CONTAINER_NAME:25-beta 25/beta
     - docker push $CONTAINER_NAME:25-beta
   only:
     - master
 deploy-stable-25:
   stage: deploy
   script:
-    - docker load -i docker-images/25-stable.tar
+    - docker build --tag $CONTAINER_NAME:25-stable 25/stable
     - docker push $CONTAINER_NAME:25-stable
   only:
     - master
