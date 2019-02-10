@@ -23,7 +23,7 @@ RUN git clone -b ${FLUTTER_CHANNEL} https://github.com/flutter/flutter.git /opt/
 
 RUN curl -O https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip \
     && mkdir /opt/android-sdk \
-    && unzip sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip -d /opt/android-sdk \
+    && unzip -qq sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip -d /opt/android-sdk \
     && rm sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip
 
 RUN mkdir ~/.android \
