@@ -8,7 +8,7 @@ stages:
   - test
   - deploy
 
-after_script:
+before_script:
   - docker info
 
 build-master-28:
