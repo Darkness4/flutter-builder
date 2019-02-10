@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk-slim
 
 ARG android_compile_sdk=27
-ARG android_build_tools=28.0.3
+ARG android_build_tools=27.0.3
 ARG android_sdk_tools=4333796
 ARG flutter_channel=stable
 
