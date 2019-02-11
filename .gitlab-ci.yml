@@ -304,9 +304,11 @@ test-stable-25:
     # - master
     
 deploy:
-  - stage: deploy
-  - script:
+  stage: deploy
+  script:
     - wget -qO- --no-check-certificate --post-data="build=true" $BUILD_TRIGGER_URL
+  only:
+    - master
 
 after_script:
   - docker images
