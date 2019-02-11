@@ -212,9 +212,9 @@ deploy-dev-28:
   script:
     - docker build --tag $CONTAINER_NAME:28-dev 28/dev
     - docker push $CONTAINER_NAME:28-dev
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:28
+    - docker tag $CONTAINER_NAME:28-dev $CONTAINER_NAME:28
     - docker push $CONTAINER_NAME:dev
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:latest-dev
+    - docker tag $CONTAINER_NAME:28-dev $CONTAINER_NAME:latest-dev
     - docker push $CONTAINER_NAME:latest-dev
   only:
     - master
@@ -223,9 +223,9 @@ deploy-beta-28:
   script:
     - docker build --tag $CONTAINER_NAME:28-beta 28/beta
     - docker push $CONTAINER_NAME:28-beta
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:28
+    - docker tag $CONTAINER_NAME:28-beta $CONTAINER_NAME:28
     - docker push $CONTAINER_NAME:beta
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:latest-beta
+    - docker tag $CONTAINER_NAME:28-beta $CONTAINER_NAME:latest-beta
     - docker push $CONTAINER_NAME:latest-beta
   only:
     - master
@@ -234,9 +234,9 @@ deploy-stable-28:
   script:
     - docker build --tag $CONTAINER_NAME:28-stable 28/stable
     - docker push $CONTAINER_NAME:28-stable
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:28
+    - docker tag $CONTAINER_NAME:28-stable $CONTAINER_NAME:28
     - docker push $CONTAINER_NAME:stable
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:latest-stable
+    - docker tag $CONTAINER_NAME:28-stable $CONTAINER_NAME:latest-stable
     - docker push $CONTAINER_NAME:latest-stable
   only:
     - master
