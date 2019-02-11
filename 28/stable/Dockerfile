@@ -32,7 +32,7 @@ RUN mkdir ~/.android \
     && echo 'count=0' > ~/.android/repositories.cfg \
     && yes | sdkmanager --licenses \
     && sdkmanager "tools" \
-    "platforms;android-${ANDROID_COMPILE_SDK_LATEST}"
+    "platforms;android-${ANDROID_COMPILE_SDK_LATEST}" \
     "build-tools;${ANDROID_BUILD_TOOLS}" \
     "platforms;android-${ANDROID_COMPILE_SDK}" \
     "platform-tools" \
