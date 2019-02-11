@@ -192,116 +192,121 @@ test-stable-25:
   - master
 
 
-deploy-master-28:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:28-master 28/master
-    - docker push $CONTAINER_NAME:28-master
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:28
-    - docker push $CONTAINER_NAME:28
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:latest-master
-    - docker push $CONTAINER_NAME:latest-master
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:latest
-    - docker push $CONTAINER_NAME:latest
-    - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:master
-    - docker push $CONTAINER_NAME:master
-  only:
-    - master
-deploy-dev-28:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:28-dev 28/dev
-    - docker push $CONTAINER_NAME:28-dev
-    - docker tag $CONTAINER_NAME:28-dev $CONTAINER_NAME:28
-    - docker push $CONTAINER_NAME:dev
-    - docker tag $CONTAINER_NAME:28-dev $CONTAINER_NAME:latest-dev
-    - docker push $CONTAINER_NAME:latest-dev
-  only:
-    - master
-deploy-beta-28:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:28-beta 28/beta
-    - docker push $CONTAINER_NAME:28-beta
-    - docker tag $CONTAINER_NAME:28-beta $CONTAINER_NAME:28
-    - docker push $CONTAINER_NAME:beta
-    - docker tag $CONTAINER_NAME:28-beta $CONTAINER_NAME:latest-beta
-    - docker push $CONTAINER_NAME:latest-beta
-  only:
-    - master
-deploy-stable-28:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:28-stable 28/stable
-    - docker push $CONTAINER_NAME:28-stable
-    - docker tag $CONTAINER_NAME:28-stable $CONTAINER_NAME:28
-    - docker push $CONTAINER_NAME:stable
-    - docker tag $CONTAINER_NAME:28-stable $CONTAINER_NAME:latest-stable
-    - docker push $CONTAINER_NAME:latest-stable
-  only:
-    - master
+# deploy-master-28:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:28-master 28/master
+    # - docker push $CONTAINER_NAME:28-master
+    # - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:28
+    # - docker push $CONTAINER_NAME:28
+    # - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:latest-master
+    # - docker push $CONTAINER_NAME:latest-master
+    # - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:latest
+    # - docker push $CONTAINER_NAME:latest
+    # - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:master
+    # - docker push $CONTAINER_NAME:master
+  # only:
+    # - master
+# deploy-dev-28:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:28-dev 28/dev
+    # - docker push $CONTAINER_NAME:28-dev
+    # - docker tag $CONTAINER_NAME:28-dev $CONTAINER_NAME:dev
+    # - docker push $CONTAINER_NAME:dev
+    # - docker tag $CONTAINER_NAME:28-dev $CONTAINER_NAME:latest-dev
+    # - docker push $CONTAINER_NAME:latest-dev
+  # only:
+    # - master
+# deploy-beta-28:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:28-beta 28/beta
+    # - docker push $CONTAINER_NAME:28-beta
+    # - docker tag $CONTAINER_NAME:28-beta $CONTAINER_NAME:beta
+    # - docker push $CONTAINER_NAME:beta
+    # - docker tag $CONTAINER_NAME:28-beta $CONTAINER_NAME:latest-beta
+    # - docker push $CONTAINER_NAME:latest-beta
+  # only:
+    # - master
+# deploy-stable-28:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:28-stable 28/stable
+    # - docker push $CONTAINER_NAME:28-stable
+    # - docker tag $CONTAINER_NAME:28-stable $CONTAINER_NAME:stable
+    # - docker push $CONTAINER_NAME:stable
+    # - docker tag $CONTAINER_NAME:28-stable $CONTAINER_NAME:latest-stable
+    # - docker push $CONTAINER_NAME:latest-stable
+  # only:
+    # - master
 
-deploy-master-27:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:27-master 27/master
-    - docker push $CONTAINER_NAME:27-master
-    - docker tag $CONTAINER_NAME:27-master $CONTAINER_NAME:27
-    - docker push $CONTAINER_NAME:27
-  only:
-    - master
-deploy-dev-27:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:27-dev 27/dev
-    - docker push $CONTAINER_NAME:27-dev
-  only:
-    - master
-deploy-beta-27:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:27-beta 27/beta
-    - docker push $CONTAINER_NAME:27-beta
-  only:
-    - master
-deploy-stable-27:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:27-stable 27/stable
-    - docker push $CONTAINER_NAME:27-stable
-  only:
-    - master
+# deploy-master-27:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:27-master 27/master
+    # - docker push $CONTAINER_NAME:27-master
+    # - docker tag $CONTAINER_NAME:27-master $CONTAINER_NAME:27
+    # - docker push $CONTAINER_NAME:27
+  # only:
+    # - master
+# deploy-dev-27:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:27-dev 27/dev
+    # - docker push $CONTAINER_NAME:27-dev
+  # only:
+    # - master
+# deploy-beta-27:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:27-beta 27/beta
+    # - docker push $CONTAINER_NAME:27-beta
+  # only:
+    # - master
+# deploy-stable-27:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:27-stable 27/stable
+    # - docker push $CONTAINER_NAME:27-stable
+  # only:
+    # - master
 
-deploy-master-25:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:25-master 25/master
-    - docker push $CONTAINER_NAME:25-master
-    - docker tag $CONTAINER_NAME:25-master $CONTAINER_NAME:25
-    - docker push $CONTAINER_NAME:25
-  only:
-    - master
-deploy-dev-25:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:25-dev 25/dev
-    - docker push $CONTAINER_NAME:25-dev
-  only:
-    - master
-deploy-beta-25:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:25-beta 25/beta
-    - docker push $CONTAINER_NAME:25-beta
-  only:
-    - master
-deploy-stable-25:
-  stage: deploy
-  script:
-    - docker build --tag $CONTAINER_NAME:25-stable 25/stable
-    - docker push $CONTAINER_NAME:25-stable
-  only:
-    - master
+# deploy-master-25:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:25-master 25/master
+    # - docker push $CONTAINER_NAME:25-master
+    # - docker tag $CONTAINER_NAME:25-master $CONTAINER_NAME:25
+    # - docker push $CONTAINER_NAME:25
+  # only:
+    # - master
+# deploy-dev-25:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:25-dev 25/dev
+    # - docker push $CONTAINER_NAME:25-dev
+  # only:
+    # - master
+# deploy-beta-25:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:25-beta 25/beta
+    # - docker push $CONTAINER_NAME:25-beta
+  # only:
+    # - master
+# deploy-stable-25:
+  # stage: deploy
+  # script:
+    # - docker build --tag $CONTAINER_NAME:25-stable 25/stable
+    # - docker push $CONTAINER_NAME:25-stable
+  # only:
+    # - master
+    
+deploy:
+  - stage: deploy
+  - script:
+    - wget -qO- --no-check-certificate --post-data="build=true" $BUILD_TRIGGER_URL
 
 after_script:
   - docker images
