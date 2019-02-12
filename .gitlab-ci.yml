@@ -306,7 +306,8 @@ test-stable-25:
 deploy:
   stage: deploy
   script:
-    - wget -qO- --no-check-certificate --post-data="build=true" $BUILD_TRIGGER_URL > /dev/null
+    - apk add curl
+    - curl -X POST $BUILD_TRIGGER_URL > /dev/null
   only:
     - master
 
