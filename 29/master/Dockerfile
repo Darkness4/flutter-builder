@@ -1,10 +1,10 @@
 FROM openjdk:8-jdk-slim
 
-ARG android_compile_sdk=28
-ARG android_compile_sdk_latest=28
+ARG android_compile_sdk=29
+ARG android_compile_sdk_latest=29
 ARG android_build_tools=29.0.0
 ARG android_sdk_tools=4333796
-ARG flutter_channel=beta
+ARG flutter_channel=master
 
 ENV ANDROID_COMPILE_SDK=$android_compile_sdk
 ENV ANDROID_COMPILE_SDK_LATEST=$android_compile_sdk_latest

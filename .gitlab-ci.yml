@@ -72,31 +72,31 @@ build-stable-27:
   - master
 
 
-build-master-25:
+build-master-29:
   stage: build
   script:
-    - docker build --tag $CONTAINER_NAME:25-master 25/master
+    - docker build --tag $CONTAINER_NAME:29-master 29/master
   only:
   - master
 
-build-dev-25:
+build-dev-29:
   stage: build
   script:
-    - docker build --tag $CONTAINER_NAME:25-dev 25/dev
+    - docker build --tag $CONTAINER_NAME:29-dev 29/dev
   only:
   - master
 
-build-beta-25:
+build-beta-29:
   stage: build
   script:
-    - docker build --tag $CONTAINER_NAME:25-beta 25/beta
+    - docker build --tag $CONTAINER_NAME:29-beta 29/beta
   only:
   - master
 
-build-stable-25:
+build-stable-29:
   stage: build
   script:
-    - docker build --tag $CONTAINER_NAME:25-stable 25/stable
+    - docker build --tag $CONTAINER_NAME:29-stable 29/stable
   only:
   - master
 
@@ -160,34 +160,34 @@ test-stable-27:
   only:
   - master
 
-test-master-25:
+test-master-29:
   stage: test
   script:
-    - docker build --tag $CONTAINER_NAME:25-master 25/master
-    - docker run --rm $CONTAINER_NAME:25-master [ ! -d /opt/android-sdk/platforms/android-25 ]&&exit 1 || (echo "Found" && exit 0)
+    - docker build --tag $CONTAINER_NAME:29-master 29/master
+    - docker run --rm $CONTAINER_NAME:29-master [ ! -d /opt/android-sdk/platforms/android-29 ]&&exit 1 || (echo "Found" && exit 0)
   only:
   - master
   only:
   - master
-test-dev-25:
+test-dev-29:
   stage: test
   script:
-    - docker build --tag $CONTAINER_NAME:25-dev 25/dev
-    - docker run --rm $CONTAINER_NAME:25-dev [ ! -d /opt/android-sdk/platforms/android-25 ]&&exit 1 || (echo "Found" && exit 0)
+    - docker build --tag $CONTAINER_NAME:29-dev 29/dev
+    - docker run --rm $CONTAINER_NAME:29-dev [ ! -d /opt/android-sdk/platforms/android-29 ]&&exit 1 || (echo "Found" && exit 0)
   only:
   - master
-test-beta-25:
+test-beta-29:
   stage: test
   script:
-    - docker build --tag $CONTAINER_NAME:25-beta 25/beta
-    - docker run --rm $CONTAINER_NAME:25-beta [ ! -d /opt/android-sdk/platforms/android-25 ]&&exit 1 || (echo "Found" && exit 0)
+    - docker build --tag $CONTAINER_NAME:29-beta 29/beta
+    - docker run --rm $CONTAINER_NAME:29-beta [ ! -d /opt/android-sdk/platforms/android-29 ]&&exit 1 || (echo "Found" && exit 0)
   only:
   - master
-test-stable-25:
+test-stable-29:
   stage: test
   script:
-    - docker build --tag $CONTAINER_NAME:25-stable 25/stable
-    - docker run --rm $CONTAINER_NAME:25-stable [ ! -d /opt/android-sdk/platforms/android-25 ]&&exit 1 || (echo "Found" && exit 0)
+    - docker build --tag $CONTAINER_NAME:29-stable 29/stable
+    - docker run --rm $CONTAINER_NAME:29-stable [ ! -d /opt/android-sdk/platforms/android-29 ]&&exit 1 || (echo "Found" && exit 0)
   only:
   - master
 
@@ -272,34 +272,34 @@ test-stable-25:
   # only:
     # - master
 
-# deploy-master-25:
+# deploy-master-29:
   # stage: deploy
   # script:
-    # - docker build --tag $CONTAINER_NAME:25-master 25/master
-    # - docker push $CONTAINER_NAME:25-master
-    # - docker tag $CONTAINER_NAME:25-master $CONTAINER_NAME:25
-    # - docker push $CONTAINER_NAME:25
+    # - docker build --tag $CONTAINER_NAME:29-master 29/master
+    # - docker push $CONTAINER_NAME:29-master
+    # - docker tag $CONTAINER_NAME:29-master $CONTAINER_NAME:29
+    # - docker push $CONTAINER_NAME:29
   # only:
     # - master
-# deploy-dev-25:
+# deploy-dev-29:
   # stage: deploy
   # script:
-    # - docker build --tag $CONTAINER_NAME:25-dev 25/dev
-    # - docker push $CONTAINER_NAME:25-dev
+    # - docker build --tag $CONTAINER_NAME:29-dev 29/dev
+    # - docker push $CONTAINER_NAME:29-dev
   # only:
     # - master
-# deploy-beta-25:
+# deploy-beta-29:
   # stage: deploy
   # script:
-    # - docker build --tag $CONTAINER_NAME:25-beta 25/beta
-    # - docker push $CONTAINER_NAME:25-beta
+    # - docker build --tag $CONTAINER_NAME:29-beta 29/beta
+    # - docker push $CONTAINER_NAME:29-beta
   # only:
     # - master
-# deploy-stable-25:
+# deploy-stable-29:
   # stage: deploy
   # script:
-    # - docker build --tag $CONTAINER_NAME:25-stable 25/stable
-    # - docker push $CONTAINER_NAME:25-stable
+    # - docker build --tag $CONTAINER_NAME:29-stable 29/stable
+    # - docker push $CONTAINER_NAME:29-stable
   # only:
     # - master
     
