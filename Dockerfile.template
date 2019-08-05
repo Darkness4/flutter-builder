@@ -17,8 +17,8 @@ ENV ANDROID_HOME="/opt/android-sdk" \
 
 RUN apt-get update \
     && apt-get -y install --no-install-recommends curl git lib32stdc++6 unzip \
-    && apt-get --purge autoremove \
-    && apt-get autoclean \
+    && apt-get -y --purge autoremove \
+    && apt-get -y autoclean \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone -b ${FLUTTER_CHANNEL} https://github.com/flutter/flutter.git /opt/flutter
