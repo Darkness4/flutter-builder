@@ -1,6 +1,7 @@
 # Darkness4/flutter-builder
 
-A flutter-builder container with the choice of the SDK and the flutter channel. 
+A flutter-builder container with the choice of the SDK and the flutter channel.
+Also pre-equipped with emulator.
 
 [![pipeline status](https://gitlab.com/Darkness4/flutter-builder/badges/master/pipeline.svg)](https://gitlab.com/Darkness4/flutter-builder/commits/master)
 ![license](https://img.shields.io/github/license/Darkness4/flutter-builder.svg?style=flat)
