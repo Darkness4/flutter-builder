@@ -13,6 +13,30 @@ Also pre-equipped with emulator.
 ![docker image size 28-master](https://img.shields.io/microbadger/image-size/darkness4/flutter-builder/28.svg?label=image%20size%20%2828-master%29&style=flat)
 ![docker image size 27-master](https://img.shields.io/microbadger/image-size/darkness4/flutter-builder/27.svg?label=image%20size%20%2827-master%29&style=flat)
 
+
+## Tags
+
+SDK 29
+
+- `latest`, `master`, `latest-master`, `29`, `29-master`
+- `dev`, `latest-dev`, `29-dev`
+- `beta`, `latest-beta`, `29-beta`
+- `stable`, `latest-stable`, `29-stable`
+
+SDK 28
+
+- `28`, `28-master`
+- `28-dev`
+- `28-beta`
+- `28-stable`
+
+SDK 27
+
+- `27`, `27-master`
+- `27-dev`
+- `27-beta`
+- `27-stable`
+
 ## Usage
 
 ```sh
@@ -23,26 +47,31 @@ docker pull darkness4/flutter-builder:{Android SDK}-{Flutter branch}
 
 ```yaml
 # gitlab.yml
-
-image: darkness4/flutter-builder:27
-
-variables:
-before_script:
-  - flutter channel master
-  - flutter upgrade
-
 stages:
   - build
 
 build:
   stage: build
+  image: darkness4/flutter-builder:27
+
+  before_script:
+    - flutter channel master  # Just to be sure
+    - flutter upgrade  # Always update
+
   script:
-    - flutter -v build apk --release
-    - mv build/app/outputs/apk/app.apk app.apk
+    - flutter build apk --target-platform android-arm,android-arm64 --split-per-abi
+
+  after_script:
+    - mv build/app/outputs/apk/release/app-armeabi-v7a-release.apk app-armeabi-v7a-release.apk 
+    - mv build/app/outputs/apk/release/app-arm64-v8a-release.apk app-arm64-v8a-release.apk 
+
   artifacts:
     paths:
-      - app.apk
+      - app-armeabi-v7a-release.apk
+      - app-arm64-v8a-release.apk
     expire_in: 1 week
+```
+
 ```
 
 ## License
