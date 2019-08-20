@@ -13,7 +13,7 @@ ENV ANDROID_SDK_TOOLS=$android_sdk_tools
 ENV FLUTTER_CHANNEL=$flutter_channel
 
 ENV ANDROID_HOME="/opt/android-sdk" \
-  PATH="/opt/android-sdk/tools/bin:/opt/android-sdk/platform-tool:/opt/android-sdk/emulator:/opt/flutter/bin:/opt/flutter/bin/cache/dart-sdk/bin:$PATH"
+  PATH="/opt/android-sdk/tools/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/emulator:/opt/flutter/bin:/opt/flutter/bin/cache/dart-sdk/bin:$PATH"
 
 RUN apt-get update \
   && apt-get -y install --no-install-recommends curl git lib32stdc++6 unzip \
