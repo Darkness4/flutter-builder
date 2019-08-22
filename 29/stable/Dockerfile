@@ -1,13 +1,11 @@
 FROM openjdk:8-jdk-slim
 
 ARG android_compile_sdk=29
-ARG android_compile_sdk_latest=29
 ARG android_build_tools=29.0.2
 ARG android_sdk_tools=4333796
 ARG flutter_channel=stable
 
 ENV ANDROID_COMPILE_SDK=$android_compile_sdk
-ENV ANDROID_COMPILE_SDK_LATEST=$android_compile_sdk_latest
 ENV ANDROID_BUILD_TOOLS=$android_build_tools
 ENV ANDROID_SDK_TOOLS=$android_sdk_tools
 ENV FLUTTER_CHANNEL=$flutter_channel
@@ -32,11 +30,9 @@ RUN mkdir ~/.android \
   && echo 'count=0' > ~/.android/repositories.cfg \
   && yes | sdkmanager --licenses \
   && sdkmanager "tools" \
-  "platforms;android-${ANDROID_COMPILE_SDK_LATEST}" \
   "build-tools;${ANDROID_BUILD_TOOLS}" \
   "platforms;android-${ANDROID_COMPILE_SDK}" \
   "platform-tools" \
-  "emulator" \
   "extras;android;m2repository" \
   "extras;google;google_play_services" \
   "extras;google;m2repository" > /dev/null \
