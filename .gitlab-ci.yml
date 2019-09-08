@@ -5,6 +5,8 @@ services:
 
 variables:
   CONTAINER_NAME: darkness4/flutter-builder
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_DRIVER: overlay2
 
 stages:
   - build
