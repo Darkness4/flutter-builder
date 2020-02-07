@@ -20,56 +20,56 @@ before_script:
 # build-master-28:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:28-master 28/master
+#     - docker build –no-cache --tag $CONTAINER_NAME:28-master 28/master
 #   only:
 #   - master
 
 # build-dev-28:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:28-dev 28/dev
+#     - docker build –no-cache --tag $CONTAINER_NAME:28-dev 28/dev
 #   only:
 #   - master
 
 # build-beta-28:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:28-beta 28/beta
+#     - docker build –no-cache --tag $CONTAINER_NAME:28-beta 28/beta
 #   only:
 #   - master
 
 # build-stable-28:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:28-stable 28/stable
+#     - docker build –no-cache --tag $CONTAINER_NAME:28-stable 28/stable
 #   only:
 #   - master
 
 # build-master-27:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:27-master 27/master
+#     - docker build –no-cache --tag $CONTAINER_NAME:27-master 27/master
 #   only:
 #   - master
 
 # build-dev-27:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:27-dev 27/dev
+#     - docker build –no-cache --tag $CONTAINER_NAME:27-dev 27/dev
 #   only:
 #   - master
 
 # build-beta-27:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:27-beta 27/beta
+#     - docker build –no-cache --tag $CONTAINER_NAME:27-beta 27/beta
 #   only:
 #   - master
 
 # build-stable-27:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:27-stable 27/stable
+#     - docker build –no-cache --tag $CONTAINER_NAME:27-stable 27/stable
 #   only:
 #   - master
 
@@ -77,28 +77,28 @@ before_script:
 # build-master-29:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:29-master 29/master
+#     - docker build –no-cache --tag $CONTAINER_NAME:29-master 29/master
 #   only:
 #   - master
 
 # build-dev-29:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:29-dev 29/dev
+#     - docker build –no-cache --tag $CONTAINER_NAME:29-dev 29/dev
 #   only:
 #   - master
 
 # build-beta-29:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:29-beta 29/beta
+#     - docker build –no-cache --tag $CONTAINER_NAME:29-beta 29/beta
 #   only:
 #   - master
 
 # build-stable-29:
 #   stage: build
 #   script:
-#     - docker build --tag $CONTAINER_NAME:29-stable 29/stable
+#     - docker build –no-cache --tag $CONTAINER_NAME:29-stable 29/stable
 #   only:
 #   - master
 
@@ -107,28 +107,28 @@ before_script:
 # test-master-28:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:28-master 28/master
+#     - docker build –no-cache --tag $CONTAINER_NAME:28-master 28/master
 #     - docker run --rm $CONTAINER_NAME:28-master [ ! -d /opt/android-sdk/platforms/android-28 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
 # test-dev-28:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:28-dev 28/dev
+#     - docker build –no-cache --tag $CONTAINER_NAME:28-dev 28/dev
 #     - docker run --rm $CONTAINER_NAME:28-dev [ ! -d /opt/android-sdk/platforms/android-28 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
 # test-beta-28:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:28-beta 28/beta
+#     - docker build –no-cache --tag $CONTAINER_NAME:28-beta 28/beta
 #     - docker run --rm $CONTAINER_NAME:28-beta [ ! -d /opt/android-sdk/platforms/android-28 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
 # test-stable-28:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:28-stable 28/stable
+#     - docker build –no-cache --tag $CONTAINER_NAME:28-stable 28/stable
 #     - docker run --rm $CONTAINER_NAME:28-stable [ ! -d /opt/android-sdk/platforms/android-28 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
@@ -136,28 +136,28 @@ before_script:
 # test-master-27:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:27-master 27/master
+#     - docker build –no-cache --tag $CONTAINER_NAME:27-master 27/master
 #     - docker run --rm $CONTAINER_NAME:27-master [ ! -d /opt/android-sdk/platforms/android-27 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
 # test-dev-27:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:27-dev 27/dev
+#     - docker build –no-cache --tag $CONTAINER_NAME:27-dev 27/dev
 #     - docker run --rm $CONTAINER_NAME:27-dev [ ! -d /opt/android-sdk/platforms/android-27 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
 # test-beta-27:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:27-beta 27/beta
+#     - docker build –no-cache --tag $CONTAINER_NAME:27-beta 27/beta
 #     - docker run --rm $CONTAINER_NAME:27-beta [ ! -d /opt/android-sdk/platforms/android-27 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
 # test-stable-27:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:27-stable 27/stable
+#     - docker build –no-cache --tag $CONTAINER_NAME:27-stable 27/stable
 #     - docker run --rm $CONTAINER_NAME:27-stable [ ! -d /opt/android-sdk/platforms/android-27 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
@@ -165,28 +165,28 @@ before_script:
 # test-master-29:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:29-master 29/master
+#     - docker build –no-cache --tag $CONTAINER_NAME:29-master 29/master
 #     - docker run --rm $CONTAINER_NAME:29-master [ ! -d /opt/android-sdk/platforms/android-29 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
 # test-dev-29:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:29-dev 29/dev
+#     - docker build –no-cache --tag $CONTAINER_NAME:29-dev 29/dev
 #     - docker run --rm $CONTAINER_NAME:29-dev [ ! -d /opt/android-sdk/platforms/android-29 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
 # test-beta-29:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:29-beta 29/beta
+#     - docker build –no-cache --tag $CONTAINER_NAME:29-beta 29/beta
 #     - docker run --rm $CONTAINER_NAME:29-beta [ ! -d /opt/android-sdk/platforms/android-29 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
 # test-stable-29:
 #   stage: test
 #   script:
-#     - docker build --tag $CONTAINER_NAME:29-stable 29/stable
+#     - docker build –no-cache --tag $CONTAINER_NAME:29-stable 29/stable
 #     - docker run --rm $CONTAINER_NAME:29-stable [ ! -d /opt/android-sdk/platforms/android-29 ]&&exit 1 || (echo "Found" && exit 0)
 #   only:
 #   - master
@@ -195,7 +195,7 @@ before_script:
 deploy-master-28:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:28-master 28/master
+    - docker build –no-cache --tag $CONTAINER_NAME:28-master 28/master
     - docker push $CONTAINER_NAME:28-master
     - docker tag $CONTAINER_NAME:28-master $CONTAINER_NAME:28
     - docker push $CONTAINER_NAME:28
@@ -204,7 +204,7 @@ deploy-master-28:
 deploy-dev-28:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:28-dev 28/dev
+    - docker build –no-cache --tag $CONTAINER_NAME:28-dev 28/dev
     - docker push $CONTAINER_NAME:28-dev
     
   only:
@@ -212,7 +212,7 @@ deploy-dev-28:
 deploy-beta-28:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:28-beta 28/beta
+    - docker build –no-cache --tag $CONTAINER_NAME:28-beta 28/beta
     - docker push $CONTAINER_NAME:28-beta
     
   only:
@@ -220,7 +220,7 @@ deploy-beta-28:
 deploy-stable-28:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:28-stable 28/stable
+    - docker build –no-cache --tag $CONTAINER_NAME:28-stable 28/stable
     - docker push $CONTAINER_NAME:28-stable
     
   only:
@@ -229,7 +229,7 @@ deploy-stable-28:
 deploy-master-27:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:27-master 27/master
+    - docker build –no-cache --tag $CONTAINER_NAME:27-master 27/master
     - docker push $CONTAINER_NAME:27-master
     - docker tag $CONTAINER_NAME:27-master $CONTAINER_NAME:27
     - docker push $CONTAINER_NAME:27
@@ -238,21 +238,21 @@ deploy-master-27:
 deploy-dev-27:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:27-dev 27/dev
+    - docker build –no-cache --tag $CONTAINER_NAME:27-dev 27/dev
     - docker push $CONTAINER_NAME:27-dev
   only:
     - master
 deploy-beta-27:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:27-beta 27/beta
+    - docker build –no-cache --tag $CONTAINER_NAME:27-beta 27/beta
     - docker push $CONTAINER_NAME:27-beta
   only:
     - master
 deploy-stable-27:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:27-stable 27/stable
+    - docker build –no-cache --tag $CONTAINER_NAME:27-stable 27/stable
     - docker push $CONTAINER_NAME:27-stable
   only:
     - master
@@ -260,7 +260,7 @@ deploy-stable-27:
 deploy-master-29:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:29-master 29/master
+    - docker build –no-cache --tag $CONTAINER_NAME:29-master 29/master
     - docker push $CONTAINER_NAME:29-master
     - docker tag $CONTAINER_NAME:29-master $CONTAINER_NAME:29
     - docker push $CONTAINER_NAME:29
@@ -275,7 +275,7 @@ deploy-master-29:
 deploy-dev-29:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:29-dev 29/dev
+    - docker build –no-cache --tag $CONTAINER_NAME:29-dev 29/dev
     - docker push $CONTAINER_NAME:29-dev
     - docker tag $CONTAINER_NAME:29-dev $CONTAINER_NAME:latest-dev
     - docker push $CONTAINER_NAME:latest-dev
@@ -286,7 +286,7 @@ deploy-dev-29:
 deploy-beta-29:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:29-beta 29/beta
+    - docker build –no-cache --tag $CONTAINER_NAME:29-beta 29/beta
     - docker push $CONTAINER_NAME:29-beta
     - docker tag $CONTAINER_NAME:29-beta $CONTAINER_NAME:latest-beta
     - docker push $CONTAINER_NAME:latest-beta
@@ -297,7 +297,7 @@ deploy-beta-29:
 deploy-stable-29:
   stage: deploy
   script:
-    - docker build --tag $CONTAINER_NAME:29-stable 29/stable
+    - docker build –no-cache --tag $CONTAINER_NAME:29-stable 29/stable
     - docker push $CONTAINER_NAME:29-stable
     - docker tag $CONTAINER_NAME:29-stable $CONTAINER_NAME:latest-stable
     - docker push $CONTAINER_NAME:latest-stable
